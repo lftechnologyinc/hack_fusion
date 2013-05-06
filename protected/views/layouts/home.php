@@ -23,9 +23,6 @@
 			$script->registerScriptFile(Yii::app()->request->baseUrl . '/js/jquery.js');
 			$script->registerScriptFile(Yii::app()->request->baseUrl . '/js/jquery.validate.js');
 			$script->registerScriptFile(Yii::app()->request->baseUrl . '/source/jquery.fancybox.js?v=2.1.4');
-			$script->registerScriptFile(Yii::app()->request->baseUrl . '/js/jquery.validate.js');
-			$script->registerScriptFile(Yii::app()->request->baseUrl . '/js/organictabs.jquery.js');
-			$script->registerScriptFile(Yii::app()->request->baseUrl . '/js/home.js');
 			?>
 	<!--[if lt IE 9]>
     <script src="js/html5.js"></script>
@@ -59,8 +56,8 @@
 			</header>
 			<div class="header-shadow"></div>
 		</div>
-		<div id="wrapper" class="container">
-		  <?php echo $content;?>
+      <div id="wrapper">
+        		<?php echo $content; ?>
         </div>
 
         <div class="copys">

@@ -14,7 +14,7 @@
 		});
 	});
 </script>
-<h1>New Room</h1>
+<h1>Edit Room</h1>
 <?php
 $form = $this->beginWidget('CActiveForm', array(
 	'id' => 'add_room_form',

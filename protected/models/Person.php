@@ -42,6 +42,7 @@ class Person extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('section_id', 'required'),
+			array('name', 'required'),
 			array('manual_assign, section_id', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>255),
 			// The following rule is used by search().

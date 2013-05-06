@@ -2,19 +2,19 @@
 	$(document).ready(function(){
 		$("#add_room_form").validate({
 			rules: {
-				'Room[name]':{
+				'Section[size]':{
 					required:true
 				}
 			},
 			messages: {
-				'Room[name]':{
+				'Section[size]':{
 					required:'Required'
 				}
 			}
 		});
 	});
 </script>
-<h1>New Room</h1>
+<h1>New Section:<?php echo $room_name;?></h1>
 <?php
 $form = $this->beginWidget('CActiveForm', array(
 	'id' => 'add_room_form',
@@ -24,10 +24,10 @@ $form = $this->beginWidget('CActiveForm', array(
 	),
 		));
 ?>
-<P><div><?php echo $form->errorSummary($room); ?></div></p>
+<P><div><?php echo $form->errorSummary($section); ?></div></p>
 <p>
-	<?php echo $form->labelEx($room, 'Room Name'); ?>
-	<?php echo $form->textField($room, 'name'); ?>
-	<?php echo CHtml::submitButton('create room', array('class' => '')); ?>
+	<?php echo $form->labelEx($section, 'Section Size'); ?>
+	<?php echo $form->textField($section, 'size',array('PlaceHolder'=>'Enter Section Size')); ?>
+	<?php echo CHtml::submitButton('create section', array('class' => '')); ?>
 </p>
 <?php $this->endWidget(); ?>

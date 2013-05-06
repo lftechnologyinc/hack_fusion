@@ -39,6 +39,7 @@ class Project extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name', 'length', 'max'=>255),
+			//array('name','Required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, name', 'safe', 'on'=>'search'),
@@ -54,6 +55,7 @@ class Project extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'projectPeople' => array(self::HAS_MANY, 'ProjectPerson', 'project_id'),
+                        'people' => array(self::HAS_MANY, 'Person', 'project_person(project_id,person_id)'),
 		);
 	}
 
