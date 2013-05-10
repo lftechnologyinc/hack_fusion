@@ -1,0 +1,7 @@
+assets/
+protected/runtime
+protected/data/*.db
+*~
+.DS_Store
+nbproject/
+/uploads/
