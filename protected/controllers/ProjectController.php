@@ -35,7 +35,7 @@ class ProjectController extends Controller
 		if (isset($_POST['Project']) && isset($_POST['Person'])) {
 			$projectModel->attributes = $_POST['Project'];
 			if ($projectModel->validate()) {
-				if ($projectModel->update()) {
+				if (!$projectModel->update()) {
 					$projectModel->addError('Falied to Update');
 				}
 			}
