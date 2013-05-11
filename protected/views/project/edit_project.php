@@ -28,17 +28,18 @@ $(document).ready(function(){
 $form = $this -> beginWidget('CActiveForm', array('id' => 'edit_project_form', 'htmlOptions' => array('class' => 'content p0 width-100', 'autocomplete' => 'off'), ));
 ?>
 
-
-<P><div></div></p>
+<P><div><?php echo $form->errorSummary($projectModel);?></div></p>
 <p>
-	<?php echo $form->labelEx($personModel,'Name '); ?>
-	<?php echo $form->textField($personModel,'name'); ?>
-	<?php echo CHtml::submitButton('Update',array('class' => '')); ?>
-</p>
-<P><div></div></p>
-<p>
-	<?php echo $form->labelEx($projectModel,'Name '); ?>
+	<?php echo $form->labelEx($projectModel,'Project Name');?>
 	<?php echo $form->textField($projectModel,'name'); ?>
+	<?php echo CHtml::submitButton('Update', array('class' => '')); ?>
+</p>
+
+
+<P><div><?php echo $form->errorSummary($personModel);?></div></p>
+<p>
+	<?php echo $form->labelEx($personModel,'Members Name');?>
+	<?php echo $form->textField($personModel,'name'); ?>
 	<?php echo CHtml::submitButton('Add', array('class' => '')); ?>
 </p>
 
