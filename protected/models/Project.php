@@ -39,6 +39,7 @@ class Project extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name', 'length', 'max'=>255),
+			
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, name', 'safe', 'on'=>'search'),
