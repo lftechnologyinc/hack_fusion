@@ -14,6 +14,7 @@
 		});
 	});
 </script>
+<div style="height: 500px">
 <h1>New Room</h1>
 <?php
 $form = $this->beginWidget('CActiveForm', array(
@@ -31,3 +32,4 @@ $form = $this->beginWidget('CActiveForm', array(
 	<?php echo CHtml::submitButton('create room', array('class' => '')); ?>
 </p>
 <?php $this->endWidget(); ?>
+</div>
