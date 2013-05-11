@@ -1,7 +1,21 @@
+<script>
+$(document).ready(function(){
+		$('#add_room').fancybox({
+			'transitionIn'	:	'elastic',
+			'transitionOut'	:	'elastic',
+			'autoScale'         : true,
+			'autoDimensions'    : false,
+			'type'              : 'iframe',
+			'speedIn'		:	600,
+			'speedOut'       :	200,
+			'overlayShow'	:	false
+		});
+})
+</script>
 <div class="ten columns ">
           		<ul class="buttons">
           			<li>
-          				<a class="add_btn" href="#">Add Room</a>
+						<a id="add_room" class="add_btn" href="<?php echo Yii::app()->request->baseUrl;?>/room/add">Add Room</a>
           			</li>
           			<li>
           				<a href="#" class="add_btn">Add Person</a>
@@ -16,15 +30,15 @@
          </div>
          <div class="six columns ">
           <div id="example-one">
-        			
+
         	<ul class="nav">
                 <li><a href="#people" class="current">People</a></li>
                 <li><a href="#room">Room</a></li>
                 <li class="last"><a href="#project">Projects</a></li>
             </ul>
-        	
+
         	<div class="list-wrap">
-        	
+
         		<ul id="people">
         			<li><input type="text" class="search" placeholder="Search"></li>
         			<li>
@@ -35,7 +49,7 @@
         							<th class="item_two">Edit</th>
         							<th class="item_two">Delete</th>
         						</tr>
-        						<?php 
+        						<?php
         						foreach($projects as $key =>$value){
         						echo"
         						<tr class='odd'>
@@ -49,7 +63,7 @@
         				</table>
         			</li>
         		 </ul>
-        		 
+
         		 <ul id="room" class="hide">
         		 	<li><input type="text" class="search" placeholder="Search"></li>
         		    <li>
@@ -139,7 +153,7 @@
         			</li>
                  </ul>
         	 </div> <!-- END List Wrap -->
-         
+
          </div> <!-- END Organic Tabs (Example One) -->
          </div>
         </div>
