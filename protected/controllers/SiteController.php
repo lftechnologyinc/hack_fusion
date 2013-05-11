@@ -34,18 +34,20 @@ class SiteController extends Controller
 		$sqlprovider = new CSqlDataProvider($sql_project);
 		$projectLists = $sqlprovider-> getData();
 		$data['projects'] = $projectLists;
-	
-		
+
+
 		$sql_persons = 'SELECT name FROM person';
 		$sqlprovider_person = new CSqlDataProvider($sql_persons);
 		$personLists = $sqlprovider_person-> getData();
 		$data['persons'] = $personLists;
-	
+
 		$sql_rooms = 'SELECT name FROM room';;
 		$sqlprovider_rooms = new CSqlDataProvider($sql_rooms);
 		$roomLists = $sqlprovider_rooms-> getData();
 		$data['rooms'] = $roomLists;
-		
+
+		$data['room_list'] = Room::model()->findAll();
+
 		$this->render('index',$data);
 		//$this->render('index');
 	}
@@ -67,10 +69,10 @@ class SiteController extends Controller
 	public function actionAssign()
      {
         $site_model = new SiteModel();
-        
+
         $room_info = $site_model->get_room_data();
         $project_info =  $site_model->get_project_data();
-        
+
         $assign_room = array();
         for($rm = 0; $rm < count($project_info); $rm++)
         {
@@ -90,7 +92,7 @@ class SiteController extends Controller
                   $section_num++;
                }
             }
-            
+
             for($i=0; $i< count($room_info); $i++)
             {
                $total_seat = 0;
@@ -105,10 +107,10 @@ class SiteController extends Controller
                   array_push($assign_room, array('room_id'=> $room_info[$i]['id'], 'section_id'=>$section_ids, 'section_num'=>'all', 'project_id'=>$project_id, 'check_type'=>'room'));
                }
             }
-            
-            
+
+
         }
-        
+
         echo '<pre>';
         print_r($assign_room);
         exit;
