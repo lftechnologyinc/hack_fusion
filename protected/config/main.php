@@ -3,7 +3,7 @@ require_once(dirname(__FILE__) . '/../../env.php');
 if (environment_setting() == "development") {
 	$database = 'db_hackathon';
 	$username = 'root';
-	$password = '';
+	$password = 'leapfrog';
 	$admin_email = 'bmaharjan@lftechnology.com';
 } else if (environment_setting() == "staging") {
 	$database = '';
