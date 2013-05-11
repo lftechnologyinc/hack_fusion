@@ -14,7 +14,7 @@ class ProjectController extends Controller {
 		$tableName = 'project';
 		$sqlprovider = new CSqlDataProvider($sql);
 		$projectLists = $sqlprovider-> getData();
-		
+
 		$data['projects'] = $projectLists;
 		if(isset($_POST['search'])){
 			$searchCriteria = $_POST['search'];
@@ -33,6 +33,7 @@ class ProjectController extends Controller {
 		if (isset($_POST['Project'])) {
 			$projectModel -> name = $_POST['Project']['name'];
 			$projectModel -> save();
+			$_SESSION['msg'] = 'Added successfully';
 		}
 		$this -> render('add_project', array('projectModel' => $projectModel));
 	}
@@ -60,13 +61,13 @@ class ProjectController extends Controller {
 		}
 		$this -> render('edit_project', $data);
 	}
-	
+
 	public function actionListData(){
 		$sql = 'SELECT name FROM project';
 		$tableName = 'project';
 		$sqlprovider = new CSqlDataProvider($sql);
 		$projectLists = $sqlprovider-> getData();
-		
+
 		$data['projects'] = $projectLists;
 		if(isset($_POST['search'])){
 			$searchCriteria = $_POST['search'];

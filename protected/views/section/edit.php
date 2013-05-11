@@ -1,5 +1,5 @@
 <script>
-	$(document).ready(function(){
+	$(document).ready(function(){git
 		var base_url = $('#base_url').val();
 		var section_id = $('#section_id').val();
 		load_person_list_belong_to_section(section_id);

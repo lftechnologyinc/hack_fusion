@@ -14,7 +14,9 @@
 		});
 	});
 </script>
+<div style="height: 250px; width: 600px;">
 <h1>New Room</h1>
+<div><?php if(isset($_SESSION['msg'])){echo $_SESSION['msg'];unset ($_SESSION['msg']);}?></div>
 <?php
 $form = $this->beginWidget('CActiveForm', array(
 	'id' => 'add_room_form',
@@ -31,3 +33,4 @@ $form = $this->beginWidget('CActiveForm', array(
 	<?php echo CHtml::submitButton('create room', array('class' => '')); ?>
 </p>
 <?php $this->endWidget(); ?>
+</div>

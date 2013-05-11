@@ -24,7 +24,7 @@ class RoomController extends Controller
 			$room->attributes = $_POST['Room'];
 			if ($room->validate()) {
 				if ($room->save()) {
-
+					$_SESSION['msg'] = 'added successfully';
 				}
 			}
 		}
@@ -46,13 +46,13 @@ class RoomController extends Controller
 		}
 		$this->render('edit', $data);
 	}
-	
+
 	public function actionListData(){
 		$sql = 'SELECT name FROM project';
 		$tableName = 'project';
 		$sqlprovider = new CSqlDataProvider($sql);
 		$projectLists = $sqlprovider-> getData();
-		
+
 		$data['projects'] = $projectLists;
 		if(isset($_POST['search'])){
 			$searchCriteria = $_POST['search'];
