@@ -1,18 +1,23 @@
 <div class="ten columns ">
-          		<ul class="buttons">
-          			<li>
-          				<a class="add_btn" href="#">Add Room</a>
-          			</li>
-          			<li>
-          				<a href="#" class="add_btn">Add Person</a>
-          			</li>
-          			<li>
-          				<a href="#" class="add_btn">Add Project</a>
-          			</li>
-          			<li>
-          				<a href="#" class="add_btn">Go</a>
-          			</li>
-          		</ul>
+
+	<ul class="buttons">
+		<li>
+			<a id="add_room" class="add_btn" href="<?php echo Yii::app()->request->baseUrl; ?>/room/add">Add Room</a>
+		</li>
+		<li>
+			<a id="add_person" href="<?php echo Yii::app()->request->baseUrl;?>/person/add" class="add_btn">Add Person</a>
+		</li>
+		<li>
+			<a id="add_project" href="<?php echo Yii::app()->request->baseUrl;?>/project/addProject" class="add_btn">Add Project</a>
+		</li>
+		<li>
+			<a href="#" class="add_btn go">Go</a>
+		</li>
+	</ul>
+<?php $this->renderPartial('slider',array('room_list'=>$room_list)); ?>
+</div>
+<div class="six columns ">
+	<div id="example-one">
 
          </div>
          <div class="six columns ">
