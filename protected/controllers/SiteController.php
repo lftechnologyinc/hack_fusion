@@ -30,18 +30,22 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$sql = 'SELECT name FROM project';
-		$tableName = 'project';
-		$sqlprovider = new CSqlDataProvider($sql);
+		$sql_project = 'SELECT name FROM project';
+		$sqlprovider = new CSqlDataProvider($sql_project);
 		$projectLists = $sqlprovider-> getData();
-		
 		$data['projects'] = $projectLists;
-		if(isset($_POST['search'])){
-			$searchCriteria = $_POST['search'];
-			$search = new SearchClass;
-			$result = $search::search($searchCriteria,$tableName);
-			$data['projects'] = $result;
-		}
+	
+		
+		$sql_persons = 'SELECT name FROM person';
+		$sqlprovider_person = new CSqlDataProvider($sql_persons);
+		$personLists = $sqlprovider_person-> getData();
+		$data['persons'] = $personLists;
+	
+		$sql_rooms = 'SELECT name FROM room';;
+		$sqlprovider_rooms = new CSqlDataProvider($sql_rooms);
+		$roomLists = $sqlprovider_rooms-> getData();
+		$data['rooms'] = $roomLists;
+		
 		$this->render('index',$data);
 		//$this->render('index');
 	}

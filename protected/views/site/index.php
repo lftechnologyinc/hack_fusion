@@ -36,7 +36,7 @@
         							<th class="item_two">Delete</th>
         						</tr>
         						<?php 
-        						foreach($projects as $key =>$value){
+        						foreach($persons as $key =>$value){
         						echo"
         						<tr class='odd'>
         							<td class='item_one'>".$value['name']."</td>
@@ -60,36 +60,16 @@
         							<th class="item_two">Edit</th>
         							<th class="item_two">Delete</th>
         						</tr>
-        						<tr class="odd">
-        							<td class="item_one">Shyam Sundar Awal</td>
-        							<td class="item_two"><i class="icon_edit"></i></td>
-        							<td class="item_two"><i class="icon_delete"></i></td>
-        						</tr>
-        						<tr class="even">
-        							<td class="item_one">Shyam Sundar Awal</td>
-        							<td class="item_two"><i class="icon_edit"></i></td>
-        							<td class="item_two"><i class="icon_delete"></i></td>
-        						</tr>
-        						<tr class="odd">
-        							<td class="item_one">Shyam Sundar Awal</td>
-        							<td class="item_two"><i class="icon_edit"></i></td>
-        							<td class="item_two"><i class="icon_delete"></i></td>
-        						</tr>
-        						<tr class="even">
-        							<td class="item_one">Shyam Sundar Awal</td>
-        							<td class="item_two"><i class="icon_edit"></i></td>
-        							<td class="item_two"><i class="icon_delete"></i></td>
-        						</tr>
-        						<tr class="odd">
-        							<td class="item_one">Shyam Sundar Awal</td>
-        							<td class="item_two"><i class="icon_edit"></i></td>
-        							<td class="item_two"><i class="icon_delete"></i></td>
-        						</tr>
-        						<tr class="even">
-        							<td class="item_one">Shyam Sundar Awal</td>
-        							<td class="item_two"><i class="icon_edit"></i></td>
-        							<td class="item_two"><i class="icon_delete"></i></td>
-        						</tr>
+        						<?php 
+        						foreach($rooms as $key =>$value){
+        						echo"
+        						<tr class='odd'>
+        							<td class='item_one'>".$value['name']."</td>
+        							<td class='item_two'><i class='icon_edit'></i></td>
+        							<td class='item_two'><i class='icon_delete'></i></td>
+        						</tr>";
+								}
+        						?>
         					</tbody>
         				</table>
         			</li>
@@ -104,36 +84,16 @@
         							<th class="item_two">Edit</th>
         							<th class="item_two">Delete</th>
         						</tr>
-        						<tr class="odd">
-        							<td class="item_one">Shyam Sundar Awal</td>
-        							<td class="item_two"><i class="icon_edit"></i></td>
-        							<td class="item_two"><i class="icon_delete"></i></td>
-        						</tr>
-        						<tr class="even">
-        							<td class="item_one">Shyam Sundar Awal</td>
-        							<td class="item_two"><i class="icon_edit"></i></td>
-        							<td class="item_two"><i class="icon_delete"></i></td>
-        						</tr>
-        						<tr class="odd">
-        							<td class="item_one">Shyam Sundar Awal</td>
-        							<td class="item_two"><i class="icon_edit"></i></td>
-        							<td class="item_two"><i class="icon_delete"></i></td>
-        						</tr>
-        						<tr class="even">
-        							<td class="item_one">Shyam Sundar Awal</td>
-        							<td class="item_two"><i class="icon_edit"></i></td>
-        							<td class="item_two"><i class="icon_delete"></i></td>
-        						</tr>
-        						<tr class="odd">
-        							<td class="item_one">Shyam Sundar Awal</td>
-        							<td class="item_two"><i class="icon_edit"></i></td>
-        							<td class="item_two"><i class="icon_delete"></i></td>
-        						</tr>
-        						<tr class="even">
-        							<td class="item_one">Shyam Sundar Awal</td>
-        							<td class="item_two"><i class="icon_edit"></i></td>
-        							<td class="item_two"><i class="icon_delete"></i></td>
-        						</tr>
+        						<?php 
+        						foreach($projects as $key =>$value){
+        						echo"
+        						<tr class='odd'>
+        							<td class='item_one'>".$value['name']."</td>
+        							<td class='item_two'><i class='icon_edit'></i></td>
+        							<td class='item_two'><i class='icon_delete'></i></td>
+        						</tr>";
+								}
+        						?>
         					</tbody>
         				</table>
         			</li>
