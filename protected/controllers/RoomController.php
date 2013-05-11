@@ -46,5 +46,21 @@ class RoomController extends Controller
 		}
 		$this->render('edit', $data);
 	}
+	
+	public function actionListData(){
+		$sql = 'SELECT name FROM project';
+		$tableName = 'project';
+		$sqlprovider = new CSqlDataProvider($sql);
+		$projectLists = $sqlprovider-> getData();
+		
+		$data['projects'] = $projectLists;
+		if(isset($_POST['search'])){
+			$searchCriteria = $_POST['search'];
+			$search = new SearchClass;
+			$result = $search::search($searchCriteria,$tableName);
+			$data['projects'] = $result;
+		}
+		$this->render('index',$data);
+	}
 
 }
