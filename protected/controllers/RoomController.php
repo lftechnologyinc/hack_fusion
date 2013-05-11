@@ -2,8 +2,8 @@
 
 class RoomController extends Controller
 {
-	public $layout = "//layouts/main";
 
+	public $layout = "//layouts/main";
 
 	/**
 	 * This is the default 'index' action that is invoked
@@ -20,7 +20,31 @@ class RoomController extends Controller
 	{
 		$room = new Room();
 		$data['room'] = $room;
-		$this->render('add',$data);
+		if (isset($_POST['Room'])) {
+			$room->attributes = $_POST['Room'];
+			if ($room->validate()) {
+				if ($room->save()) {
+
+				}
+			}
+		}
+		$this->render('add', $data);
+	}
+
+	public function actionEdit()
+	{
+		$room_id = 1;
+		$room = Room::model()->findByPk($room_id);
+		$data['room'] = $room;
+		if (isset($_POST['Room'])) {
+			$room->attributes = $_POST['Room'];
+			if ($room->validate()) {
+				if ($room->update()) {
+
+				}
+			}
+		}
+		$this->render('edit', $data);
 	}
 
 }
