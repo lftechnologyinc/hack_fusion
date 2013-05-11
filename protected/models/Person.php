@@ -60,6 +60,7 @@ class Person extends CActiveRecord
 		return array(
 			'section' => array(self::BELONGS_TO, 'Section', 'section_id'),
 			'projectPeople' => array(self::HAS_MANY, 'ProjectPerson', 'person_id'),
+                        'projects' => array(self::HAS_MANY, 'Project', 'project_person(person_id,project_id)'),
 		);
 	}
 

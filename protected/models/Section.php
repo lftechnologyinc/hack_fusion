@@ -42,6 +42,7 @@ class Section extends CActiveRecord
 		return array(
 			array('room_id', 'required'),
 			array('size, room_id', 'numerical', 'integerOnly'=>true),
+			array('size', 'required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, size, room_id', 'safe', 'on'=>'search'),

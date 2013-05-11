@@ -55,6 +55,7 @@ class Project extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'projectPeople' => array(self::HAS_MANY, 'ProjectPerson', 'project_id'),
+                        'people' => array(self::HAS_MANY, 'Person', 'project_person(project_id,person_id)'),
 		);
 	}
 
