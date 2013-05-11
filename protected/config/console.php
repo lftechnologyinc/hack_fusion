@@ -18,7 +18,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=db_hackathon',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => 'leapfrog',
+			'password' => '',
 			'charset' => 'utf8',
 		),
 		'staging' => array(
