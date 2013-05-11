@@ -15,13 +15,13 @@ class PersonController extends Controller
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('index');
 	}
-	
+
 	public function actionListData(){
 		$sql = 'SELECT name FROM project';
 		$tableName = 'project';
 		$sqlprovider = new CSqlDataProvider($sql);
 		$projectLists = $sqlprovider-> getData();
-		
+
 		$data['projects'] = $projectLists;
 		if(isset($_POST['search'])){
 			$searchCriteria = $_POST['search'];
@@ -40,7 +40,7 @@ class PersonController extends Controller
 			$person->attributes = $_POST['Person'];
 			if ($person->validate()) {
 				if ($person->save()) {
-
+					$_SESSION['msg'] = 'Added Successfully';
 				}
 			}
 		}

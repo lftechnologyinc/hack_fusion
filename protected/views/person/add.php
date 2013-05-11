@@ -15,6 +15,7 @@
 	});
 </script>
 <h1>New Person</h1>
+<div><?php if(isset($_SESSION['msg'])){echo $_SESSION['msg'];}?></div>
 <?php
 $form = $this->beginWidget('CActiveForm', array(
 	'id' => 'add_room_form',

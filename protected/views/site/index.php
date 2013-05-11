@@ -1,14 +1,38 @@
 <script>
 	$(document).ready(function(){
-		$('.fancybox-inner').css('height', '300px !important');
 		$('#add_room').fancybox({
 			'transitionIn'      : 'elastic',
 			'transitionOut'     : 'elastic',
-			'autoScale'         : true,
+			'autoSize'         : false,
 			'autoDimensions'    : false,
 			'speedIn'           : 10,
-			"width":925,
-			"height":925,
+			"height":300,
+			'speedOut'          : 200,
+			'overlayShow'       : false,
+			'type'              : 'iframe',
+			'live'              : true
+		});
+
+		$('#add_person').fancybox({
+			'transitionIn'      : 'elastic',
+			'transitionOut'     : 'elastic',
+			'autoSize'         : false,
+			'autoDimensions'    : false,
+			'speedIn'           : 10,
+			"height":300,
+			'speedOut'          : 200,
+			'overlayShow'       : false,
+			'type'              : 'iframe',
+			'live'              : true
+		});
+
+		$('#add_project').fancybox({
+			'transitionIn'      : 'elastic',
+			'transitionOut'     : 'elastic',
+			'autoSize'         : false,
+			'autoDimensions'    : false,
+			'speedIn'           : 10,
+			"height":300,
 			'speedOut'          : 200,
 			'overlayShow'       : false,
 			'type'              : 'iframe',
@@ -22,10 +46,10 @@
 			<a id="add_room" class="add_btn" href="<?php echo Yii::app()->request->baseUrl; ?>/room/add">Add Room</a>
 		</li>
 		<li>
-			<a href="#" class="add_btn">Add Person</a>
+			<a id="add_person" href="<?php echo Yii::app()->request->baseUrl;?>/person/add" class="add_btn">Add Person</a>
 		</li>
 		<li>
-			<a href="#" class="add_btn">Add Project</a>
+			<a id="add_project" href="<?php echo Yii::app()->request->baseUrl;?>/project/addProject" class="add_btn">Add Project</a>
 		</li>
 		<li>
 			<a href="#" class="add_btn">Go</a>
