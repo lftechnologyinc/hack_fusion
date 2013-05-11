@@ -42,6 +42,7 @@ class Person extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('section_id', 'required'),
+			array('name', 'required'),
 			array('manual_assign, section_id', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>255),
 			// The following rule is used by search().
@@ -60,7 +61,6 @@ class Person extends CActiveRecord
 		return array(
 			'section' => array(self::BELONGS_TO, 'Section', 'section_id'),
 			'projectPeople' => array(self::HAS_MANY, 'ProjectPerson', 'person_id'),
-                        'projects' => array(self::HAS_MANY, 'Project', 'project_person(person_id,project_id)'),
 		);
 	}
 

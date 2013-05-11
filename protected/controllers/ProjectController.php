@@ -27,12 +27,26 @@ class ProjectController extends Controller
 	}
 	
 	public function actionEditProject(){
-		$personId = $projectId = '';
-		$personModel = Person::model()->findByPk($personId);
-		$projectModel = Project::model()->findByPk($projectId);
+		$project_id = $person_id = 1;
+		$projectModel = Project::model()->findByPk($project_id);
+		$personModel = Person::model()->findByPk($person_id);
 		$data['projectModel'] = $projectModel;
 		$data['personModel'] = $personModel;
-		$this->render('edit_project',$data);
-	}
-
+		if (isset($_POST['Project']) && isset($_POST['Person'])) {
+			$projectModel->attributes = $_POST['Project'];
+			if ($projectModel->validate()) {
+				if ($projectModel->update()) {
+					$projectModel->addError('Falied to Update');
+				}
+			}
+			$personModel->attributes = $_POST['Person'];
+			if ($personModel->validate()) {
+				if (!$personModel->update()) {
+					$personModel->addError('Falied to Update');
+				}
+			}
+		
+		}
+		$this->render('edit_project', $data);
+		}
 }
