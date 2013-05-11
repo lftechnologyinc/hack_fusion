@@ -1,29 +1,31 @@
 <script>
-$(document).ready(function(){
-	$("#add_instructor_form").validate({
-								rules: {
-									'Instructor[first_name]':{
-									required:true,
-									lettersonly:true
-									}
-								},
-								messages: {
-									'Instructor[first_name]':{
-									required:'Required',
-									lettersonly:'Text only'
-									}
-								}
-							});
-});
+	$(document).ready(function(){
+		$("#add_room_form").validate({
+			rules: {
+				'Room[name]':{
+					required:true
+				}
+			},
+			messages: {
+				'Room[name]':{
+					required:'Required'
+				}
+			}
+		});
+	});
 </script>
 <?php
-			$form = $this->beginWidget('CActiveForm', array(
-				'id' => 'add_instructor_form',
-				'htmlOptions' => array(
-					'class' => 'content p0 width-100',
-					'autocomplete' => 'off'
-				),
-					));
-			?>
-
+$form = $this->beginWidget('CActiveForm', array(
+	'id' => 'add_room_form',
+	'htmlOptions' => array(
+		'class' => 'content p0 width-100',
+		'autocomplete' => 'off'
+	),
+		));
+?>
+<p>
+	<?php echo $form->labelEx($room, 'Room Name'); ?>
+	<?php echo $form->textField($room, 'name'); ?>
+	<?php echo CHtml::submitButton('create room', array('class' => '')); ?>
+</p>
 <?php $this->endWidget(); ?>

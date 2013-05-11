@@ -18,7 +18,9 @@ class RoomController extends Controller
 
 	public function actionAdd()
 	{
-		$this->render('add');
+		$room = new Room();
+		$data['room'] = $room;
+		$this->render('add',$data);
 	}
 
 }
