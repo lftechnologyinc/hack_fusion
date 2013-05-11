@@ -5,7 +5,7 @@ body > .default_container{
 	top: 0px;
 	width: 100%;
 }
-input[type="text"]{
+input[type="text"]:focus{
 	background:#FFF;
 	border:1px solid #CCC;
 	width:100%;
@@ -18,15 +18,23 @@ input[type="text"]{
 		-webkit-border-radius:3px;
 	text-indent:10px
 }
+hr{border:none; background:#CCC; height:2px; width:100%; clear:both}
 .everything{width: 100%;top: 0;position: relative; float: left;}
 /* GENERAL */
 
-input:focus, textarea:focus{ 
+input[type="text"], textarea:focus{ 
 	color: #868C8E;
 	-webkit-box-shadow: inset #eaeaea 1px 1px 3px; 
 	-moz-box-shadow: inset #eaeaea 1px 1px 3px; 
 	box-shadow: inset #eaeaea 1px 1px 3px;  
 	outline: 0;
+	background:#FFF;
+	border:1px solid #CCC;
+	width:100%;
+	height:30px;
+	border-radius:3px;
+		-moz-border-radius:3px;
+		-webkit-border-radius:3px;
 }
 p{
 	font-family: Helvetica, Arial;
@@ -130,7 +138,6 @@ h1{
 	left: -5px;
 	margin: 0 auto;
 	z-index: 999;
-	min-height: 103px;
 }
 header .logo_and_menu{
 	position: relative;
@@ -146,7 +153,6 @@ header .logo_and_menu{
 	width: 100%;
 	background:#fff;
 	border-top: 3px solid #444;
-	min-height: 103px;
 	z-index: 99999;
 }
 
@@ -154,7 +160,7 @@ header .logo_and_menu{
 	position: relative;
 	left: 36px;
 	float: left;
-	margin-top: 41px;
+	line-height:60px
 }
 header #menulava{
 	position: relative;
@@ -286,7 +292,7 @@ ul.member li span{
 #example-one ul li a:hover { background: #fe4902; color: white; }
 #example-one ul li:last-child a { border: none; }
 
-#example-one ul li a.current, #example-one ul.featured li a:hover { background-color: #63c000; color: white; }
+#example-one ul li a.current, #example-one ul.featured li a:hover { background-color: #2561B4; color: white; }
 /* icon search */
 input[type="text"].search{
 	background:url("../images/search.png") no-repeat scroll 5px 7px #FFFFFF;
@@ -306,7 +312,7 @@ tr{height:40px; line-height:40px}
 tr.table_head{background:#e5e5e5; border-bottom:1px solid #CCC}
 .item_one{width:60%}
 .item_two{width:20%; border-left:1px solid #CCC}
-tr.odd:hover, tr.even:hover{background:#d7ffad}
+tr.odd:hover, tr.even:hover{background:rgba(37,97,180,0.2)}
 tr.odd{background:#f6f6f6; cursor:pointer}
 tr.even{background:#FFFFFF; cursor:pointer}
 i.icon_edit{background:transparent url("../images/icon_edit.png") no-repeat;}
@@ -322,7 +328,7 @@ i.icon_delete:hover{background:transparent url("../images/icon_delete_hover.png"
 
 
 /* Buttons */
-ul.buttons{margin:0}
+ul.buttons{margin:0; float:left; margin: 15px 0;}
 ul.buttons li{float:left; margin-right:15px;}
 .add_btn {
 	background-color:#3bb3e0;
@@ -377,7 +383,8 @@ ul.buttons li{float:left; margin-right:15px;}
 	-o-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #156785, 0px 5px 3px #999;
 	box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #156785, 0px 5px 3px #999;
 }
-
+.add_btn.go{border-radius:5px}
+.add_btn.go::before, .add_btn.go::after{display:none;}
 .add_btn::before {
 	background-color:#2561b4;
 	content:"+";
@@ -426,3 +433,12 @@ ul.buttons li{float:left; margin-right:15px;}
 	-o-box-shadow:inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #032b3a, 1px 1px 0px 0px #044a64, 2px 2px 0px 0px #044a64, 2px 5px 0px 0px #044a64, 6px 4px 2px #0b698b, 0px 10px 5px #999 ;
 	box-shadow:inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #032b3a, 1px 1px 0px 0px #044a64, 2px 2px 0px 0px #044a64, 2px 5px 0px 0px #044a64, 6px 4px 2px #0b698b, 0px 10px 5px #999 ;
 }
+
+/*list people*/
+.list_people{margin-top:15px}
+.list_people > li {
+    width: 75px;
+    display:inline-block;
+    margin-right:15px
+}
+.list_people > li h2{margin:0}
