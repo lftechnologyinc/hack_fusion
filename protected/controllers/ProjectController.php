@@ -26,7 +26,8 @@ class ProjectController extends Controller {
 		//$this -> render('index');
 	}
 
-	public function actionAddProject() {
+
+	public function actionAddProject(){
 		$projectModel = new Project();
 
 		if (isset($_POST['Project'])) {
