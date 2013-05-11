@@ -3,7 +3,7 @@
 class RoomController extends Controller
 {
 
-	public $layout = "//layouts/main";
+	public $layout = "//layouts/popup";
 
 	/**
 	 * This is the default 'index' action that is invoked

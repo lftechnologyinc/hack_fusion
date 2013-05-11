@@ -56,14 +56,8 @@
 			</header>
 			<div class="header-shadow"></div>
 		</div>
-		<div id="wrapper" class="container">
-		  <div class="ten columns ">
-          this is column ten
-         </div>
-         <div class="six columns ">
-          this is column ten
-         </div>
-        </div>
+      <div id="wrapper">
+        		<?php echo $content; ?>
         </div>
 
         <div class="copys">
