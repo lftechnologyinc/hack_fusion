@@ -3,7 +3,7 @@ require_once(dirname(__FILE__) . '/../../env.php');
 if (environment_setting() == "development") {
 	$database = 'db_hackathon';
 	$username = 'root';
-	$password = 'leapfrog';
+	$password = '';
 	$admin_email = 'bmaharjan@lftechnology.com';
 } else if (environment_setting() == "staging") {
 	$database = '';
@@ -51,6 +51,7 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+			//'class' => 'WebUser',
 		),
 		// uncomment the following to enable URLs in path-format
 

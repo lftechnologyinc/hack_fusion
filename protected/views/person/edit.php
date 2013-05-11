@@ -2,21 +2,19 @@
 	$(document).ready(function(){
 		$("#add_room_form").validate({
 			rules: {
-				'Room[name]':{
+				'Person[name]':{
 					required:true
 				}
 			},
 			messages: {
-				'Room[name]':{
+				'Person[name]':{
 					required:'Required'
 				}
 			}
 		});
 	});
 </script>
-<div style="height: 250px; width: 600px;">
-<h1>New Room</h1>
-<div><?php if(isset($_SESSION['msg'])){echo $_SESSION['msg'];unset ($_SESSION['msg']);}?></div>
+<h1>Edit Person</h1>
 <?php
 $form = $this->beginWidget('CActiveForm', array(
 	'id' => 'add_room_form',
@@ -26,11 +24,10 @@ $form = $this->beginWidget('CActiveForm', array(
 	),
 		));
 ?>
-<P><div><?php echo $form->errorSummary($room); ?></div></p>
+<P><div><?php echo $form->errorSummary($person); ?></div></p>
 <p>
-	<?php echo $form->labelEx($room, 'Room Name'); ?>
-	<?php echo $form->textField($room, 'name'); ?>
+	<?php echo $form->labelEx($person, 'Room Name'); ?>
+	<?php echo $form->textField($person, 'name'); ?>
 	<?php echo CHtml::submitButton('create room', array('class' => '')); ?>
 </p>
 <?php $this->endWidget(); ?>
-</div>

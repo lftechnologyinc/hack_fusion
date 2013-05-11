@@ -22,6 +22,7 @@
 
 			$script->registerScriptFile(Yii::app()->request->baseUrl . '/js/jquery.js');
 			$script->registerScriptFile(Yii::app()->request->baseUrl . '/js/jquery.validate.js');
+			$script->registerCssFile(Yii::app()->request->baseUrl . '/source/jquery.fancybox.css?v=2.1.4');
 			$script->registerScriptFile(Yii::app()->request->baseUrl . '/source/jquery.fancybox.js?v=2.1.4');
 			$script->registerScriptFile(Yii::app()->request->baseUrl . '/js/jquery.validate.js');
 			$script->registerScriptFile(Yii::app()->request->baseUrl . '/js/organictabs.jquery.js');

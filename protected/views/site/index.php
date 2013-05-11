@@ -117,7 +117,7 @@ $('.project_delete').click(function(e){
         	type:"POST",
         	cache:false,
         	url:"project/deleteproject",
-        	 data : { 'id' : project_id},    // multiple data sent using ajax
+        	 data : { 'id' : project_id},
         	success: function (data) {
         		alert(data.success);
         	}

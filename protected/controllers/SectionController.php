@@ -38,9 +38,11 @@ class SectionController extends Controller
 	public function actionEdit()
 	{
 		$section_id = 1;
+		$person = new Person();
 		$section = Section::model()->findByPk($section_id);
 		$room = Room::model()->findByPk($section->room_id);
 		$data['section'] = $section;
+		$data['person'] = $person;
 		$data['room_name'] = $room->name;
 		if (isset($_POST['Section'])) {
 			$section->attributes = $_POST['Section'];
