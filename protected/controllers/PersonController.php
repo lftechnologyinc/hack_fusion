@@ -2,7 +2,7 @@
 
 class PersonController extends Controller
 {
-	public $layout = "//layouts/main";
+	public $layout = "//layouts/popup";
 
 
 	/**
