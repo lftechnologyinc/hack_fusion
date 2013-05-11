@@ -5,14 +5,3 @@
  */
 
 ?>
-
-
-<?php foreach($projects as $key => $value){
-	echo $value['name'];
-}?>
-
-
-<script type = 'text/javaascript'>
-
-
-</script>

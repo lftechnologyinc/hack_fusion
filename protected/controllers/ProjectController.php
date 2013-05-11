@@ -75,5 +75,16 @@ class ProjectController extends Controller {
 		}
 		$this->render('index',$data);
 	}
+	
+	public function actionDeleteproject(){
+		if(!isset($_POST['id'])){
+			return;
+		}else{
+			$sql = 'DELETE FROM project WHERE id='.$_POST['id'];
+			Yii::app()->db->createCommand($sql)->execute();
+			
+		}
+	}
+	
 
 }

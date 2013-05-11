@@ -30,18 +30,18 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$sql_project = 'SELECT name FROM project';
+		$sql_project = 'SELECT * FROM project';
 		$sqlprovider = new CSqlDataProvider($sql_project);
 		$projectLists = $sqlprovider-> getData();
 		$data['projects'] = $projectLists;
 	
 		
-		$sql_persons = 'SELECT name FROM person';
+		$sql_persons = 'SELECT * FROM person';
 		$sqlprovider_person = new CSqlDataProvider($sql_persons);
 		$personLists = $sqlprovider_person-> getData();
 		$data['persons'] = $personLists;
 	
-		$sql_rooms = 'SELECT name FROM room';;
+		$sql_rooms = 'SELECT * FROM room';;
 		$sqlprovider_rooms = new CSqlDataProvider($sql_rooms);
 		$roomLists = $sqlprovider_rooms-> getData();
 		$data['rooms'] = $roomLists;

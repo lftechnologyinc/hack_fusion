@@ -50,7 +50,7 @@ class SectionController extends Controller
 				}
 			}
 		}
-		$this->render('edit', $data);
+		$this->renderPartial('edit', $data,true);
 	}
 
 }

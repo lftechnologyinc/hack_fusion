@@ -26,7 +26,7 @@
         	<div class="list-wrap">
         	
         		<ul id="people">
-        			<li><input type="text" class="search" placeholder="Search"></li>
+        			<!-- <li><input type="text" class="search" placeholder="Search"></li> -->
         			<li>
         				<table>
         					<tbody>
@@ -51,7 +51,7 @@
         		 </ul>
         		 
         		 <ul id="room" class="hide">
-        		 	<li><input type="text" class="search" placeholder="Search"></li>
+        		 	<!-- <li><input type="text" class="search" placeholder="Search"></li> -->
         		    <li>
         				<table>
         					<tbody>
@@ -75,7 +75,7 @@
         			</li>
         		</ul>
                  <ul id="project" class="hide">
-                 	<li><input type="text" class="search" placeholder="Search"></li>
+                 	<!-- <li><input type="text" class="search" placeholder="Search"></li> -->
                 	<li>
         				<table>
         					<tbody>
@@ -89,8 +89,8 @@
         						echo"
         						<tr class='odd'>
         							<td class='item_one'>".$value['name']."</td>
-        							<td class='item_two'><i class='icon_edit'></i></td>
-        							<td class='item_two'><i class='icon_delete'></i></td>
+        							<td class='item_two'><a href = 'javascript:void(0)' value ='".$value['id']."' id = 'project_edit_".$value['id']."' class = 'project_edit'><i  class='icon_edit' value ='".$value['id']."'></i></a></td>
+        							<td class='item_two'><a href = 'javascript:void(0)' value ='".$value['id']."' id = 'project_delete_".$value['id']."' class = 'project_delete'><i class='icon_delete' value ='".$value['id']."'></i></a></td>
         						</tr>";
 								}
         						?>
@@ -103,3 +103,25 @@
          </div> <!-- END Organic Tabs (Example One) -->
          </div>
         </div>
+        
+<script type = 'text/javascript'>
+$('.project_edit').click(function(e){
+	var project_id = $(this).attr('value');
+	alert(project_id);
+});
+
+$('.project_delete').click(function(e){
+	var project_id = $(this).attr('value');
+	if(confirm('Are you sure want to delete this project ?')){
+		  $.ajax({
+        	type:"POST",
+        	cache:false,
+        	url:"project/deleteproject",
+        	 data : { 'id' : project_id},    // multiple data sent using ajax
+        	success: function (data) {
+        		alert(data.success);
+        	}
+      	});
+	}
+});
+</script>
