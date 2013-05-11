@@ -30,18 +30,22 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$sql = 'SELECT name FROM project';
-		$tableName = 'project';
-		$sqlprovider = new CSqlDataProvider($sql);
+		$sql_project = 'SELECT name FROM project';
+		$sqlprovider = new CSqlDataProvider($sql_project);
 		$projectLists = $sqlprovider-> getData();
-		
 		$data['projects'] = $projectLists;
-		if(isset($_POST['search'])){
-			$searchCriteria = $_POST['search'];
-			$search = new SearchClass;
-			$result = $search::search($searchCriteria,$tableName);
-			$data['projects'] = $result;
-		}
+	
+		
+		$sql_persons = 'SELECT name FROM person';
+		$sqlprovider_person = new CSqlDataProvider($sql_persons);
+		$personLists = $sqlprovider_person-> getData();
+		$data['persons'] = $personLists;
+	
+		$sql_rooms = 'SELECT name FROM room';;
+		$sqlprovider_rooms = new CSqlDataProvider($sql_rooms);
+		$roomLists = $sqlprovider_rooms-> getData();
+		$data['rooms'] = $roomLists;
+		
 		$this->render('index',$data);
 		//$this->render('index');
 	}
@@ -60,64 +64,55 @@ class SiteController extends Controller
 		}
 	}
 
-	/**
-	 * Displays the contact page
-	 */
-	public function actionContact()
-	{
-		$model=new ContactForm;
-		if(isset($_POST['ContactForm']))
-		{
-			$model->attributes=$_POST['ContactForm'];
-			if($model->validate())
-			{
-				$name='=?UTF-8?B?'.base64_encode($model->name).'?=';
-				$subject='=?UTF-8?B?'.base64_encode($model->subject).'?=';
-				$headers="From: $name <{$model->email}>\r\n".
-					"Reply-To: {$model->email}\r\n".
-					"MIME-Version: 1.0\r\n".
-					"Content-type: text/plain; charset=UTF-8";
+	public function actionAssign()
+     {
+        $site_model = new SiteModel();
+        
+        $room_info = $site_model->get_room_data();
+        $project_info =  $site_model->get_project_data();
+        
+        $assign_room = array();
+        for($rm = 0; $rm < count($project_info); $rm++)
+        {
+            $project_id = $project_info[$rm]['id'];
+            $people_num = $site_model->get_project_people_num($project_id);
 
-				mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
-				$this->refresh();
-			}
-		}
-		$this->render('contact',array('model'=>$model));
-	}
-
-	/**
-	 * Displays the login page
-	 */
-	public function actionLogin()
-	{
-		$model=new LoginForm;
-
-		// if it is ajax validation request
-		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-
-		// collect user input data
-		if(isset($_POST['LoginForm']))
-		{
-			$model->attributes=$_POST['LoginForm'];
-			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login())
-				$this->redirect(Yii::app()->user->returnUrl);
-		}
-		// display the login form
-		$this->render('login',array('model'=>$model));
-	}
-
-	/**
-	 * Logs out the current user and redirect to homepage.
-	 */
-	public function actionLogout()
-	{
-		Yii::app()->user->logout();
-		$this->redirect(Yii::app()->homeUrl);
-	}
+            for($i=0; $i< count($room_info); $i++)
+            {
+               $section_num = 1;
+               foreach($room_info[$i]['section'] as $section)
+               {
+                  if($people_num == $section['size'])
+                  {
+                     array_push($assign_room, array('room_id'=> $room_info[$i]['id'], 'section_id'=>$section['id'], 'section_num'=>$section_num, 'project_id'=>$project_id, 'check_type'=>'room_section'));
+                     break;
+                  }
+                  $section_num++;
+               }
+            }
+            
+            for($i=0; $i< count($room_info); $i++)
+            {
+               $total_seat = 0;
+               $section_ids = array();
+               foreach($room_info[$i]['section'] as $section)
+               {
+                  array_push($section_ids, $section['id']);
+                  $total_seat = $total_seat + (int) $section['size'];
+               }
+               if($people_num == $total_seat)
+               {
+                  array_push($assign_room, array('room_id'=> $room_info[$i]['id'], 'section_id'=>$section_ids, 'section_num'=>'all', 'project_id'=>$project_id, 'check_type'=>'room'));
+               }
+            }
+            
+            
+        }
+        
+        echo '<pre>';
+        print_r($assign_room);
+        exit;
+        print_r($room_info);
+        print_r($project_info);
+     }
 }
