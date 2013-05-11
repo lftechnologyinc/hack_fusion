@@ -18,7 +18,8 @@
 			$script->registerCssFile(Yii::app()->request->baseUrl . '/css/skeleton.css');
 			$script->registerCssFile(Yii::app()->request->baseUrl . '/css/reset.css');
 			$script->registerCssFile(Yii::app()->request->baseUrl . '/css/default.css');
-			$script->registerCssFile(Yii::app()->request->baseUrl . '/css/superfish.css');
+			$script->registerCssFile(Yii::app()->request->baseUrl . '/css/flexslider.css');
+			
 
 			$script->registerScriptFile(Yii::app()->request->baseUrl . '/js/jquery.js');
 			$script->registerScriptFile(Yii::app()->request->baseUrl . '/js/jquery.validate.js');
@@ -26,6 +27,7 @@
 			$script->registerScriptFile(Yii::app()->request->baseUrl . '/source/jquery.fancybox.js?v=2.1.4');
 			$script->registerScriptFile(Yii::app()->request->baseUrl . '/js/jquery.validate.js');
 			$script->registerScriptFile(Yii::app()->request->baseUrl . '/js/organictabs.jquery.js');
+			$script->registerScriptFile(Yii::app()->request->baseUrl . '/js/jquery.flexslider.js');
 			$script->registerScriptFile(Yii::app()->request->baseUrl . '/js/home.js');
 			?>
 	<!--[if lt IE 9]>
@@ -41,43 +43,17 @@
 					<!-- START: LOGO & SLOGAN -->
 					<div class="logo five columns">
 						<a href="index.html" tabindex="-1" style="text-indent: 0px;">
-							<h1 class="logo" style="top: 24px; left: 0px; background: none; font-size: 12px;">Shuffle</h1>
+							<h1 class="logo" style="top: 8px; left: 0px; background: none; font-size: 12px;">Shuffle</h1>
 						</a>
-						<div class="slogan" style="background: none; font-family: 'Georgia'; font-style: italic; font-size: 12px; color: #cccccc;">Project on Room Management</div>
+						<div class="slogan" style="background: none; font-family: 'Georgia'; font-style: italic; font-size: 12px; color: #cccccc;">Manage your office space</div>
 					</div>
-					<nav id="menu" class="eleven columns">
-						<!-- PRIMARY MENU (NORMAL BROWSERS) [ add class="selected" on the current <a> ]-->
-					    <ul id="menulava" class="sf-menu">
-					        <li class="menu-item">
-					            <a href="index.html" class="selected">Home</a>
-					        </li>
-					        <li class="menu-item">
-					            <a href="#">Menu Two</a>
-					        </li>
-					    </ul>
-					</nav>
 				</div>
 			</header>
 			<div class="header-shadow"></div>
 		</div>
 		<div id="wrapper" class="container">
 		  <?php echo $content;?>
-        </div>
 
-        <div class="copys">
-            <div class="container">
-                <div class="copys_left eight columns">
-                    © Copyrights 2013
-                </div>
-
-                <div class="copys_right eight columns">
-                    <ul id="footer_menu" class="footer_menu">
-                        <li class="menu-item">
-                            <a href="#">Home</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </div>
     <!-- end of everything -->

@@ -13,6 +13,7 @@
           				<a href="#" class="add_btn">Go</a>
           			</li>
           		</ul>
+
          </div>
          <div class="six columns ">
           <div id="example-one">
